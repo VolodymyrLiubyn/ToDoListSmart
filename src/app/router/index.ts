@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-import Home from "@/views/HomePage.vue";
-
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("@/pages/Home/index.vue"),
     meta: {
       title: "Home - Vue 3 Starter",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("@/pages/NotFound/index.vue"),
+    meta: {
+      title: "404 - Сторінку не знайдено",
     },
   },
 ];
