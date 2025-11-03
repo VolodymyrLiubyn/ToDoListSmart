@@ -1,10 +1,13 @@
 <template>
   <div class="bg-white rounded-2xl shadow-md p-4">
     <div
-      v-if="$slots.header"
+      v-if="$slots.header || props.title"
       class="mb-2 border-b pb-2 font-semibold"
     >
-      <slot name="header" />
+      <slot name="header">
+        {{ props.title }}
+        <slot />
+      </slot>
     </div>
 
     <div class="text-gray-800">
@@ -20,4 +23,3 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>

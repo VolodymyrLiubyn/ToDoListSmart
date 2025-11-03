@@ -1,12 +1,15 @@
+<script lang="ts" setup>
+
+</script>
+
 <template>
   <button
     class="flex items-center gap-2 px-4 py-2
      rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-    @click="$emit('click')"
   >
     <slot name="icon" />
 
-    <slot>Button</slot>
+    <slot>{{ props.text }}</slot>
   </button>
 </template>
 
