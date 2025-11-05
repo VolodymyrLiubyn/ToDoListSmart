@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+
+const props = defineProps<{
+  title?: string;
+}>();
+</script>
+
 <template>
   <div class="bg-white rounded-2xl shadow-md p-4">
     <div

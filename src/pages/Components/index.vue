@@ -39,8 +39,8 @@ const username = ref("");
       <p>Age: 20</p>
 
       <template #footer>
-        <VButton>
-          <template #icon>
+        <VButton icon="right">
+          <template #icon-right>
             🛠
           </template>
           Edit
@@ -48,8 +48,8 @@ const username = ref("");
       </template>
     </VCard>
 
-    <VButton>
-      <template #icon>
+    <VButton icon="left">
+      <template #icon-left>
         ✅
       </template>
       Add Task
