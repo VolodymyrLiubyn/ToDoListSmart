@@ -18,11 +18,19 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/components",
-    name: "Components",
-    component: () => import("@/pages/Components/index.vue"),
+    path: "/login",
+    name: "Login",
+    component: () => import("@/pages/Login/index.vue"),
     meta: {
-      title: "Components - Vue 3 Starter",
+      title: "Login - Vue 3 Starter",
+    },
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("@/pages/Register/index.vue"),
+    meta: {
+      title: "Register - Vue 3 Starter",
     },
   },
 ];
