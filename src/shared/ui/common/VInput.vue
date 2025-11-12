@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 
-const props = defineProps<{
+type InputProps = {
   placeholder?: string;
   label?: string;
   error?: string;
   type?: string;
   modelValue?: string;
-}>();
+  supportTitle?: string;
+};
+
+const props = defineProps<InputProps>();
 
 const showPassword = ref(false);
 
@@ -18,6 +21,11 @@ const inputType = computed(() => {
   return props.type || "text";
 });
 
+const onInput = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  emit("update:modelValue", target.value);
+};
+
 
 const emit = defineEmits(["update:modelValue"]);
 </script>
@@ -26,22 +34,20 @@ const emit = defineEmits(["update:modelValue"]);
 <template>
   <div class="flex flex-col gap-1">
     <label
-      v-if="$slots.label"
+      v-if="props.label"
       class="font-medium text-gray-700"
     >
-
       {{ props.label }}
-
     </label>
+
     <div class="relative">
       <input
         :type="inputType"
-        class="border rounded-lg px-3 py-2 w-full
-         focus:outline-none focus:ring-2 focus:ring-blue-500"
-        :placeholder="props.placeholder"
         :value="props.modelValue"
-
-        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        :placeholder="props.placeholder"
+        class="border rounded-lg px-3 py-2 w-full focus:outline-none
+         focus:ring-2 focus:ring-blue-500"
+        @input="onInput"
       >
       <button
         v-if="props.type === 'password'"
@@ -63,4 +69,5 @@ const emit = defineEmits(["update:modelValue"]);
     </p>
   </div>
 </template>
+
 

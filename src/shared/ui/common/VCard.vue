@@ -1,22 +1,24 @@
 <script lang="ts" setup>
 
-const props = defineProps<{
+type CardProps = {
   title?: string;
-}>();
+};
+
+const props = defineProps<CardProps>();
 </script>
 
 <template>
   <div class="bg-white rounded-2xl shadow-md p-4">
     <div
       v-if="$slots.header || props.title"
-      class="mb-2  pb-2 font-semibold"
+      class="mb-2  pb-2 font-semibold border-b justify-center flex text-lg"
     >
       <slot name="header">
         {{ props.title }}
       </slot>
     </div>
 
-    <div class="text-blue-700">
+    <div class="mb-2  pb-2 font-semibold">
       <slot />
     </div>
 

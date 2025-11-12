@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-const props = defineProps<{ size?: "sm" | "md" | "lg" }>();
+type LoaderProps = {
+  size?: "sm" | "md" | "lg";
+};
+const props = defineProps<LoaderProps>();
 
 const sizeClass = computed(() => {
   switch (props.size) {

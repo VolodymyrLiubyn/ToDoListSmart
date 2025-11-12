@@ -4,6 +4,8 @@ export function useValidation() {
   const email = ref("");
   const password = ref("");
   const login = ref("");
+  const checkedCheckbox = ref(false);
+  const checkedSwitcher = ref(false);
   const confirmPassword = ref("");
   const submitted = ref(false);
   const emailTouched = ref(false);
@@ -91,6 +93,8 @@ export function useValidation() {
     emailTouched,
     passwordTouched,
     login,
+    checkedCheckbox,
+    checkedSwitcher,
     loading,
     confirmPassword,
     confirmPasswordTouched,
