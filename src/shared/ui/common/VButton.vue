@@ -57,7 +57,6 @@ const isLink = computed(() => !!props.to);
   </component>
 </template>
 
-
 <style scoped>
 button:disabled {
   opacity: 0.6;

@@ -14,11 +14,9 @@ type TaggingProps = {
 };
 const props = defineProps<TaggingProps>();
 
-// реактивні значення
 const value = ref(props.modelValue || []);
 const options = ref(props.options || []);
 
-// додавання тегу
 function addTag(newTag: string) {
   const tag = {
     name: newTag,
@@ -35,6 +33,7 @@ function addTag(newTag: string) {
     <label class="typo__label">Tagging</label>
 
     <Multiselect
+      v-bind="$attrs"
       id="tagging"
       v-model="value"
       :options="options"
@@ -43,8 +42,10 @@ function addTag(newTag: string) {
       :placeholder="props.placeholder"
       :tag-placeholder="props.tagPlaceholder"
       label="name"
-      track-by="code"
+      :track-by="props.trackKey"
       @tag="addTag"
     />
   </div>
 </template>
+
+

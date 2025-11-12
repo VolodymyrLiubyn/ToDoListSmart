@@ -32,10 +32,11 @@ const selectedValues = ref<typeof options>([]);
     <VMultiSelect
       id="tagging"
       v-model="selectedValues"
-      :options="options"
+      :options="mockProfiles"
       label-key="name"
-      track-key="id"
+      track-key="email"
       placeholder="Виберіть опції"
+      multiple
     />
   </div>
 
