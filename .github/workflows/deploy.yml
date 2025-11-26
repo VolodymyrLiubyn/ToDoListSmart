@@ -4,35 +4,34 @@ on:
   push:
     branches: [ "main" ]
 
-permissions:
-  contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20           # 👈 стабільна LTS
-          cache: 'pnpm'
-          check-latest: true         # 👈 гарантує наявність npm
+          node-version: 18
 
+      # Install pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 10                 # 👈 стабільна версія, сумісна з Node 18
+          version: 8
 
+      # Install deps using pnpm
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
+      # Build project
       - name: Build project
         run: pnpm build
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
