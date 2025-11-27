@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
+import { AuthRoutes } from "./auth/index";
+
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
@@ -17,10 +19,12 @@ const routes: RouteRecordRaw[] = [
       title: "404 - Сторінку не знайдено",
     },
   },
+
+  ...AuthRoutes,
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL || "/ToDoListSmart/"),
+  history: createWebHashHistory(import.meta.env.BASE_URL || "/"),
   routes,
 });
 

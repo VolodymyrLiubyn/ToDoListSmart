@@ -6,7 +6,7 @@ export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
-    base: "/ToDoListSmart/", // 👈 важливо для GitHub Pages
+    base: mode === 'production' ? '/ToDoListSmart/' : '/',
     plugins: [vue()],
     resolve: {
       alias: {
